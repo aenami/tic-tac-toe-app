@@ -1,4 +1,7 @@
 .Cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     background-color: #f9fafb;
     border-radius: 10px;

@@ -16,11 +16,13 @@ type typeTurnState = {
 function Cell({ turn }: typeTurnState) {
     // Estado para saber si la celda ya fue clickeada o no
     const [stateCell, setStateCell] = useState(false)
+    const [cellValue, setCellValue] = useState('')
+
     // Handler para el click sobre el tablero
     const handlerTurn = () => {
         // Verificacion para que no vuelva a cmbiar el valor de la casilla
         if(!stateCell){
-            console.log(turn.playerTurn)
+            setCellValue(turn.playerTurn)
             // 1. Cambiamos el estado de la casilla para que pinte la letra del jugador actual
             setStateCell(true);
             // 2. Cambiamos el estado del turno
@@ -35,7 +37,7 @@ function Cell({ turn }: typeTurnState) {
   return (
     <div className='Cell' onClick={handlerTurn}>
       {stateCell ? 
-        turn.playerTurn === 'X' ? <MdOutlineCircle/> : <BsXSquareFill/> :
+        cellValue === 'X' ? <MdOutlineCircle size={50}/> : <BsXSquareFill size={50}/> :
         null
         }
     </div>
