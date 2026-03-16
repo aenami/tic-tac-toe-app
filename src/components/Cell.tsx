@@ -22,6 +22,8 @@ function Cell({ turn, id }: typeTurnState) {
     const [cellValue, setCellValue] = useState('')
 
 
+
+
     // Handler para el click sobre el tablero
     const handlerTurn = () => {
         // Verificacion para que no vuelva a cmbiar el valor de la casilla
@@ -37,6 +39,12 @@ function Cell({ turn, id }: typeTurnState) {
 
             if(isWinner){
               // Dispara la logica que mostrara el label indicando el ganador
+              // Estado global que lleve el estado de si hay un ganador o no
+              // Modificar el estado global del score
+
+
+
+
               console.log('Gano el jugador: ', turn.playerTurn)
               return
             }
