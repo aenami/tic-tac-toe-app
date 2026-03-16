@@ -1,6 +1,8 @@
 .main {
-    display: flex;
-    background-color: rgb(222, 49, 49);
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 35px;
     width: 92vw;
     margin-top: 2%;
+    height: 100%;
 }

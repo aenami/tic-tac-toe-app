@@ -16,7 +16,7 @@ function SideInfo() {
         </button>
 
         <button className='btn'>
-          <RiResetLeftLine size={20}/> Empate
+          <RiResetLeftLine size={20}/> Reiniciar puntajes
         </button>
     </aside>
   )

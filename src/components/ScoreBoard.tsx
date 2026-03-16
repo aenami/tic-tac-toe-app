@@ -2,8 +2,9 @@ import React from 'react'
 import ScoreItem from './ScoreItem'
 import '../styles/sideBar/scoreBoard.css'
 import { MdOutlineCircle } from "react-icons/md";
-import { LuCircleEqual } from "react-icons/lu";
 import { BsXSquareFill } from "react-icons/bs";
+import { LuCircleEqual } from "react-icons/lu";
+
 
 function ScoreBoard() {
   return (

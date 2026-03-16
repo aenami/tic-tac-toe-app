@@ -1,4 +1,3 @@
-import React from 'react'
 import Navbar from '../components/Navbar'
 import '../styles/workspace.css'
 import SideInfo from '../components/SideInfo'
@@ -9,11 +8,11 @@ function Workspace() {
 
   return (
     <GameProvider>
-        <Navbar/>
-        <main className='main'>
-            <SideInfo/>
-            <GameArea/>
-        </main>
+      <Navbar/>
+      <main className='main'>
+        <SideInfo/>
+        <GameArea/>
+      </main>
     </GameProvider>
   )
 }
