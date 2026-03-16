@@ -12,7 +12,7 @@ function TurnIndicator({ playerTurn }: typePlayerTurn) {
   return (
     <div className='infoContainer'>
       <h2> Turno del jugador </h2>
-      { playerTurn === 'X' ? <MdOutlineCircle size={25} color='#fa5c87'/> : <BsXSquareFill size={25} color='#504cc5'/>}
+      { playerTurn === 'X' ? <BsXSquareFill size={25} color='#504cc5'/> : <MdOutlineCircle size={25} color='#fa5c87'/>  }
     </div>
   )
 }

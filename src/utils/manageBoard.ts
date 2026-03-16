@@ -26,7 +26,6 @@ export const fillBoard = (index: number, player: string) => {
 
 export const checkWinner = () => {
     //1. Tenemos que verificar todas las posibles combinaciones con las que un jugador podria ganar
-    console.log(board)
     
     //------- Combinacion horizontales -------
     for (const combination of winningCombinations) {
@@ -38,9 +37,8 @@ export const checkWinner = () => {
             board[a] === board[b] &&
             board[a] === board[c]
         ) { 
-            const winnerPlayer = board[a]
             board = [null, null, null,null, null, null,null, null, null]
-            return winnerPlayer;
+            return true;
         }
 
     }

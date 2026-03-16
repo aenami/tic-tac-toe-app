@@ -22,7 +22,6 @@ function Cell({ turn, id }: typeTurnState) {
     const [cellValue, setCellValue] = useState('')
 
 
-
     // Handler para el click sobre el tablero
     const handlerTurn = () => {
         // Verificacion para que no vuelva a cmbiar el valor de la casilla
@@ -54,7 +53,7 @@ function Cell({ turn, id }: typeTurnState) {
   return (
     <div className='Cell' onClick={handlerTurn}>
       {stateCell ? 
-        cellValue === 'X' ? <MdOutlineCircle size={50} color='#fa5c87'/> : <BsXSquareFill size={50} color='#504cc5'/> :
+        cellValue === 'X' ? <BsXSquareFill size={50} color='#504cc5'/> : <MdOutlineCircle size={50} color='#fa5c87'/>   :
         null
         }
     </div>
