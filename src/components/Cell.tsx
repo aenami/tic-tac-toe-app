@@ -4,19 +4,24 @@ import type { Dispatch, SetStateAction } from 'react'
 import { MdOutlineCircle } from "react-icons/md";
 import { BsXSquareFill } from "react-icons/bs";
 import '../styles/cell.css'
+import { fillBoard, checkWinner } from '../utils/manageBoard';
 
 type typeTurnState = {
   turn: {
     playerTurn: string;
     setPlayerTurn: Dispatch<SetStateAction<string>>
-  }
+  };
+  id: number;
 }
 
 
-function Cell({ turn }: typeTurnState) {
+function Cell({ turn, id }: typeTurnState) {
     // Estado para saber si la celda ya fue clickeada o no
     const [stateCell, setStateCell] = useState(false)
+    // Estado para fijar un valor sobre la celda 
     const [cellValue, setCellValue] = useState('')
+
+
 
     // Handler para el click sobre el tablero
     const handlerTurn = () => {
@@ -25,6 +30,18 @@ function Cell({ turn }: typeTurnState) {
             setCellValue(turn.playerTurn)
             // 1. Cambiamos el estado de la casilla para que pinte la letra del jugador actual
             setStateCell(true);
+
+            //----- Pinto mi tablero logico tambien
+            fillBoard(id, turn.playerTurn)
+            // Verificamos si hubo un ganador
+            const isWinner = checkWinner()
+
+            if(isWinner){
+              // Dispara la logica que mostrara el label indicando el ganador
+              console.log('Gano el jugador: ', turn.playerTurn)
+              return
+            }
+            
             // 2. Cambiamos el estado del turno
             if(turn.playerTurn === 'X'){
                 turn.setPlayerTurn('O')
@@ -37,7 +54,7 @@ function Cell({ turn }: typeTurnState) {
   return (
     <div className='Cell' onClick={handlerTurn}>
       {stateCell ? 
-        cellValue === 'X' ? <MdOutlineCircle size={50}/> : <BsXSquareFill size={50}/> :
+        cellValue === 'X' ? <MdOutlineCircle size={50} color='#fa5c87'/> : <BsXSquareFill size={50} color='#504cc5'/> :
         null
         }
     </div>

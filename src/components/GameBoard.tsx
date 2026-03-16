@@ -14,15 +14,8 @@ function GameBoard({ turnState }: TurnState ) {
 
   return (
     <div className='Board'>
-      <Cell turn={turnState}/>
-      <Cell turn={turnState}/>
-      <Cell turn={turnState}/>
-      <Cell turn={turnState}/>
-      <Cell turn={turnState}/>
-      <Cell turn={turnState}/>
-      <Cell turn={turnState}/>
-      <Cell turn={turnState}/>
-      <Cell turn={turnState}/>
+      { /* Simulamos un arreglo con la longitud del total de celdas que vamos a necesitar, lo recorremos y por cada loop devolvemos un componente cell */}
+      {Array.from({ length: 9 }).map( (_, index) => (<Cell key={index} id={index} turn={turnState}/>) )    }
     </div>
   )
 }
