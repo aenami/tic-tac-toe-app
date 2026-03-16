@@ -1,0 +1,52 @@
+.SideContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 25%;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 550;
+    color: white;
+    
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    gap: 10px;
+    
+    /* Transiciones suaves */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    
+    /* Para que el texto no se seleccione al hacer click rápido */
+    user-select: none;
+    outline: none;
+}
+
+.SideContainer button:nth-of-type(1){
+    background-color: #155dfc;
+}
+
+.SideContainer button:nth-of-type(1):hover{
+    background-color: #1341a5;
+}
+
+.SideContainer button:nth-of-type(2){
+    background-color: #4a5565;
+}
+
+.SideContainer button:nth-of-type(2):hover{
+    background-color: #353c47;
+}
+
+
+.btn:hover {
+    /* Trasladamos un poco el btn hacia arriba para una transicion*/
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}

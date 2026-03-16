@@ -1,0 +1,14 @@
+.ScoreContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 25px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.ScoreTitle {
+    font-size: 23px;
+}
