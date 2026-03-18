@@ -5,10 +5,11 @@ import { MdOutlineCircle } from "react-icons/md";
 import { BsXSquareFill } from "react-icons/bs";
 import '../styles/cell.css'
 import { fillBoard, checkWinner } from '../utils/manageBoard';
+import { useScoreGame } from '../context/useScoreGame';
 
 type typeTurnState = {
   turn: {
-    playerTurn: string;
+    playerTurn: 'X' | 'O';
     setPlayerTurn: Dispatch<SetStateAction<string>>
   };
   id: number;
@@ -21,7 +22,8 @@ function Cell({ turn, id }: typeTurnState) {
     // Estado para fijar un valor sobre la celda 
     const [cellValue, setCellValue] = useState('')
 
-
+    // Desestructuramos los estados que necesitemos
+    const { updateScore } = useScoreGame()
 
 
     // Handler para el click sobre el tablero
@@ -40,12 +42,11 @@ function Cell({ turn, id }: typeTurnState) {
             if(isWinner){
               // Dispara la logica que mostrara el label indicando el ganador
               // Estado global que lleve el estado de si hay un ganador o no
+
               // Modificar el estado global del score
+              updateScore(turn.playerTurn)
 
-
-
-
-              console.log('Gano el jugador: ', turn.playerTurn)
+              alert('El ganador fue el jugador: ' + turn.playerTurn)
               return
             }
             

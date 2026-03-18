@@ -2,16 +2,18 @@
 import {createContext } from "react";
 
 // Tipamos el valor que almacenara nuestro contexto
-type scoreContext = {
-    score: number;
-    setScore: (score: number) => void;
+interface scoreContext {
+    xScore: number;
+    oScore: number;
+    drawScore: number;
+    updateScore: (winner: 'X' | 'O' | 'DRAW') => void;
+    resetScores: () => void;
 }
 
 // 2. Creamos el contexto y definimos sus valores por defecto
-export const GameContext = createContext<scoreContext>({
-    score: -1,
-    setScore: () => {}
-})
+export const GameContext = createContext<scoreContext | undefined>(undefined)
+
+
 
 
 
