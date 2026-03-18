@@ -6,7 +6,7 @@ import '../styles/gameArea.css'
 
 function GameArea() {
   // Creamos el estado que manejara el turno del jugador
-  const [playerTurn, setPlayerTurn] = useState('X')
+  const [playerTurn, setPlayerTurn] = useState<'X' | 'O'>('X')
 
   return (
     <div className='GameAreaContainer'>

@@ -10,7 +10,7 @@ import { useScoreGame } from '../context/useScoreGame';
 type typeTurnState = {
   turn: {
     playerTurn: 'X' | 'O';
-    setPlayerTurn: Dispatch<SetStateAction<string>>
+    setPlayerTurn: Dispatch<SetStateAction<'X' | 'O'>>
   };
   id: number;
 }

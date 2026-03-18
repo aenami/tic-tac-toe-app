@@ -6,7 +6,7 @@ import Cell from './Cell'
 type TurnState = {
   turnState: {
     playerTurn: 'X' | 'O';
-    setPlayerTurn: Dispatch<SetStateAction<string>>
+    setPlayerTurn: Dispatch<SetStateAction<'X' | 'O'>>
   }
 }
 
