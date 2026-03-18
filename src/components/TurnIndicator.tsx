@@ -2,12 +2,11 @@ import React from 'react'
 import '../styles/turnIndicator.css'
 import { MdOutlineCircle } from "react-icons/md";
 import { BsXSquareFill } from "react-icons/bs";
+import { useTurnContext } from '../context/turnContext/useTurnContext'
 
-type typePlayerTurn = {
-  playerTurn: string;
-}
+function TurnIndicator() {
+  const { playerTurn } = useTurnContext()
 
-function TurnIndicator({ playerTurn }: typePlayerTurn) {
 
   return (
     <div className='infoContainer'>

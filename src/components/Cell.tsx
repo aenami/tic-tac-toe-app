@@ -1,22 +1,21 @@
 import React from 'react'
 import {useState} from 'react'
-import type { Dispatch, SetStateAction } from 'react'
 import { MdOutlineCircle } from "react-icons/md";
 import { BsXSquareFill } from "react-icons/bs";
 import '../styles/cell.css'
 import { fillBoard, checkWinner } from '../utils/manageBoard';
-import { useScoreGame } from '../context/useScoreGame';
+import { useScoreGame } from '../context/scoresContext/useScoreGame';
+import { useTurnContext } from '../context/turnContext/useTurnContext';
 
-type typeTurnState = {
-  turn: {
-    playerTurn: 'X' | 'O';
-    setPlayerTurn: Dispatch<SetStateAction<'X' | 'O'>>
-  };
+type typeId = {
   id: number;
 }
 
 
-function Cell({ turn, id }: typeTurnState) {
+function Cell({ id }: typeId) {
+  // Consumimos el contexto que maneja el turno actual
+  const { playerTurn, setPlayerTurn } = useTurnContext()
+
     // Estado para saber si la celda ya fue clickeada o no
     const [stateCell, setStateCell] = useState(false)
     // Estado para fijar un valor sobre la celda 
@@ -30,12 +29,12 @@ function Cell({ turn, id }: typeTurnState) {
     const handlerTurn = () => {
         // Verificacion para que no vuelva a cmbiar el valor de la casilla
         if(!stateCell){
-            setCellValue(turn.playerTurn)
+            setCellValue(playerTurn)
             // 1. Cambiamos el estado de la casilla para que pinte la letra del jugador actual
             setStateCell(true);
 
             //----- Pinto mi tablero logico tambien
-            fillBoard(id, turn.playerTurn)
+            fillBoard(id, playerTurn)
             // Verificamos si hubo un ganador
             const isWinner = checkWinner()
 
@@ -44,17 +43,20 @@ function Cell({ turn, id }: typeTurnState) {
               // Estado global que lleve el estado de si hay un ganador o no
 
               // Modificar el estado global del score
-              updateScore(turn.playerTurn)
+              updateScore(playerTurn)
 
-              alert('El ganador fue el jugador: ' + turn.playerTurn)
+              // Reiniciar el componente que indica el turno del jugador
+              setPlayerTurn('X')
+
+              alert('El ganador fue el jugador: ' + playerTurn)
               return
             }
             
             // 2. Cambiamos el estado del turno
-            if(turn.playerTurn === 'X'){
-                turn.setPlayerTurn('O')
+            if(playerTurn === 'X'){
+              setPlayerTurn('O')
             }else{
-                turn.setPlayerTurn('X')
+              setPlayerTurn('X')
             }
         }
     }

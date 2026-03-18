@@ -1,5 +1,5 @@
 import React from 'react'
-import { useScoreGame } from '../context/useScoreGame';
+import { useScoreGame } from '../context/scoresContext/useScoreGame';
 import '../styles/sideBar/ScoreItems.css'
 import { MdOutlineCircle } from "react-icons/md";
 import { BsXSquareFill } from "react-icons/bs";
