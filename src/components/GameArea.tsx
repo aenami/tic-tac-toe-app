@@ -5,7 +5,6 @@ import '../styles/gameArea.css'
 
 function GameArea() {
 
-
   return (
     <div className='GameAreaContainer'>
       <TurnIndicator/>

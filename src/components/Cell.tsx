@@ -1,72 +1,19 @@
 import React from 'react'
-import {useState} from 'react'
+import '../styles/cell.css'
 import { MdOutlineCircle } from "react-icons/md";
 import { BsXSquareFill } from "react-icons/bs";
-import '../styles/cell.css'
-import { fillBoard, checkWinner } from '../utils/manageBoard';
-import { useScoreGame } from '../context/scoresContext/useScoreGame';
-import { useTurnContext } from '../context/turnContext/useTurnContext';
 
 type typeId = {
-  id: number;
+  value: 'X' | 'O' | '';
+  onclick: () => void;
 }
 
-
-function Cell({ id }: typeId) {
-  // Consumimos el contexto que maneja el turno actual
-  const { playerTurn, setPlayerTurn } = useTurnContext()
-
-    // Estado para saber si la celda ya fue clickeada o no
-    const [stateCell, setStateCell] = useState(false)
-    // Estado para fijar un valor sobre la celda 
-    const [cellValue, setCellValue] = useState('')
-
-    // Desestructuramos los estados que necesitemos
-    const { updateScore } = useScoreGame()
-
-
-    // Handler para el click sobre el tablero
-    const handlerTurn = () => {
-        // Verificacion para que no vuelva a cmbiar el valor de la casilla
-        if(!stateCell){
-            setCellValue(playerTurn)
-            // 1. Cambiamos el estado de la casilla para que pinte la letra del jugador actual
-            setStateCell(true);
-
-            //----- Pinto mi tablero logico tambien
-            fillBoard(id, playerTurn)
-            // Verificamos si hubo un ganador
-            const isWinner = checkWinner()
-
-            if(isWinner){
-              // Dispara la logica que mostrara el label indicando el ganador
-              // Estado global que lleve el estado de si hay un ganador o no
-
-              // Modificar el estado global del score
-              updateScore(playerTurn)
-
-              // Reiniciar el componente que indica el turno del jugador
-              setPlayerTurn('X')
-
-              alert('El ganador fue el jugador: ' + playerTurn)
-              return
-            }
-            
-            // 2. Cambiamos el estado del turno
-            if(playerTurn === 'X'){
-              setPlayerTurn('O')
-            }else{
-              setPlayerTurn('X')
-            }
-        }
-    }
+function Cell({ value, onclick}: typeId) {
 
   return (
-    <div className='Cell' onClick={handlerTurn}>
-      {stateCell ? 
-        cellValue === 'X' ? <BsXSquareFill size={50} color='#504cc5'/> : <MdOutlineCircle size={50} color='#fa5c87'/>   :
-        null
-        }
+    <div className='Cell' onClick={onclick}>
+      { value ? value === 'X' ? <BsXSquareFill size={40} color='#504cc5'/> : <MdOutlineCircle size={40} color='#fa5c87'/>:
+      null}
     </div>
   )
 }

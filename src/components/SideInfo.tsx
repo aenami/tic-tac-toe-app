@@ -3,30 +3,22 @@ import ScoreBoard from './ScoreBoard'
 import '../styles/sideBar/sideInfo.css'
 import { RiResetLeftLine } from "react-icons/ri";
 import { IoTrophyOutline } from "react-icons/io5";
-import { useScoreGame } from '../context/scoresContext/useScoreGame';
-import { useTurnContext } from '../context/turnContext/useTurnContext';
+import { useContextGame } from '../context/scoresContext/useContextGame'; 
 
 function SideInfo() {
   // Consumimos el estado global de los scores
-  const { resetScores } = useScoreGame()
-
-  // Consumimos el estado que maneja el turno del jugador actual
-  const { setPlayerTurn } = useTurnContext()
+  const { resetGame, setPlayerTurn, newGame } = useContextGame()
 
   // ------ Handlers ------
   const handlerResetScore = () => {
-    // Limpiar las celdas de la la partida
-
-
-    // Resetear el mensaje que indica el turno del jugador
+    // Reset de las puntuaciones, tablero y del turno actual
+    resetGame()
     setPlayerTurn('X')
-
-    // Reset de los scores
-    resetScores()
   }
 
   const handlerNewGame = () => {
-
+    newGame()
+    setPlayerTurn('X')
   }
 
 

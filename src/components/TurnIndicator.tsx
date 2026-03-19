@@ -2,10 +2,10 @@ import React from 'react'
 import '../styles/turnIndicator.css'
 import { MdOutlineCircle } from "react-icons/md";
 import { BsXSquareFill } from "react-icons/bs";
-import { useTurnContext } from '../context/turnContext/useTurnContext'
+import { useContextGame } from '../context/scoresContext/useContextGame';
 
 function TurnIndicator() {
-  const { playerTurn } = useTurnContext()
+  const { playerTurn } = useContextGame()
 
 
   return (

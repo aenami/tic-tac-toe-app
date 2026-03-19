@@ -7,7 +7,12 @@ interface scoreContext {
     oScore: number;
     drawScore: number;
     updateScore: (winner: 'X' | 'O' | 'DRAW') => void;
-    resetScores: () => void;
+    resetGame: () => void;
+    board: ('' | 'X' | 'O')[];
+    playMove: (index: number) => void;
+    playerTurn: 'X' |'O';
+    setPlayerTurn: (turn:'X' | 'O') => void;
+    newGame: () => void;
 }
 
 // 2. Creamos el contexto y definimos sus valores por defecto

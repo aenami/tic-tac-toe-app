@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { GameContext } from './GameContext';
 
 // Hook personalizado el cual internamente validara que nuestro GameContext se este trabajando dentro de un provider y que por lo tanto no sea null sus valores iniciales
-export const useScoreGame = () => {
+export const useContextGame = () => {
   const context = useContext(GameContext);
   
   if (!context) {
