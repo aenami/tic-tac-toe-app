@@ -23,8 +23,7 @@ const verifyWinner = (board: ('X' | 'O' | null)[]) => {
             board[a] === board[b] &&
             board[a] === board[c]
         ) {
-            alert('Hubo un ganador')
-            return board[a]
+            return {winner: board[a], combination}
         }
     }
     return null

@@ -7,20 +7,15 @@ import { useContextGame } from '../context/scoresContext/useContextGame';
 
 function SideInfo() {
   // Consumimos el estado global de los scores
-  const { resetGame, setPlayerTurn, newGame } = useContextGame()
-
-  // ------ Handlers ------
-  const handlerResetScore = () => {
-    // Reset de las puntuaciones, tablero y del turno actual
-    resetGame()
-    setPlayerTurn('X')
-  }
+  const { dispatch } = useContextGame()
 
   const handlerNewGame = () => {
-    newGame()
-    setPlayerTurn('X')
+    dispatch( { type: 'NEW_GAME' } )
   }
 
+  const hanlderResetScores = () => {
+    dispatch( { type: 'RESET_SCORES' } )
+  }
 
   return (
     <aside className='SideContainer'>
@@ -32,7 +27,7 @@ function SideInfo() {
           <IoTrophyOutline size={20} /> Nueva partida
         </button>
 
-        <button className='btn' onClick={handlerResetScore}>
+        <button className='btn' onClick={ hanlderResetScores }>
           <RiResetLeftLine size={20}/> Reiniciar puntajes
         </button>
     </aside>

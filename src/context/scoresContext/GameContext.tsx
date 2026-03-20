@@ -1,22 +1,15 @@
 // 1. Importamos la libreria para crear el contexto global
-import {createContext } from "react";
+import {createContext, type Dispatch } from "react";
+import type { GameState, GameAction } from "../../reducers/gameReducer";
 
-// Tipamos el valor que almacenara nuestro contexto
-interface scoreContext {
-    xScore: number;
-    oScore: number;
-    drawScore: number;
-    updateScore: (winner: 'X' | 'O' | 'DRAW') => void;
-    resetGame: () => void;
-    board: ('' | 'X' | 'O')[];
-    playMove: (index: number) => void;
-    playerTurn: 'X' |'O';
-    setPlayerTurn: (turn:'X' | 'O') => void;
-    newGame: () => void;
+// Tipamos los valores que almacenara nuestro contexto
+type reducer = {
+    state: GameState;
+    dispatch: Dispatch<GameAction>;
 }
 
 // 2. Creamos el contexto y definimos sus valores por defecto
-export const GameContext = createContext<scoreContext | undefined>(undefined)
+export const GameContext = createContext<reducer | undefined>(undefined)
 
 
 

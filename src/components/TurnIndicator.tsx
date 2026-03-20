@@ -1,17 +1,19 @@
 import React from 'react'
 import '../styles/turnIndicator.css'
-import { MdOutlineCircle } from "react-icons/md";
-import { BsXSquareFill } from "react-icons/bs";
 import { useContextGame } from '../context/scoresContext/useContextGame';
 
-function TurnIndicator() {
-  const { playerTurn } = useContextGame()
 
+function TurnIndicator() {
+  // Importo el estado de mi reducer principal
+  const { state } = useContextGame()
 
   return (
     <div className='infoContainer'>
-      <h2> Turno del jugador </h2>
-      { playerTurn === 'X' ? <BsXSquareFill size={25} color='#504cc5'/> : <MdOutlineCircle size={25} color='#fa5c87'/>  }
+
+      <h2> 
+        {state.winner ? 'Player ' + state.winner.player + ' has won ': (state.isDraw ? ' Draw '  : state.currentPlayer === 'X' ? 'Player turn X' : 'Player turn O ' )}
+      </h2>
+
     </div>
   )
 }

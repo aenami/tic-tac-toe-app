@@ -5,4 +5,41 @@
     cursor: pointer;
     background-color: #f9fafb;
     border-radius: 10px;
+    transition: ease-out, 0.2s;
+}
+
+.finalCell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: not-allowed;
+    background-color: #f9fafb;
+    border-radius: 10px;
+    transition: ease-out, 0.2s;
+}
+
+.Cell:hover {
+    background-color: #cbcbcc;
+    transform: scale(1.1);
+}
+
+.ClickedCell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: not-allowed;
+    background-color: #f9fafb;
+    border-radius: 10px;
+    transition: ease-out, 0.2s;
+}
+
+.WinnerCell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: not-allowed;
+    background-color: #dbfce7;
+    border-radius: 10px;
+    transition: ease-out, 0.2s;
+    transform: scale(1.1);
 }
