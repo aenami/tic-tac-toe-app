@@ -6,3 +6,9 @@
     margin-top: 2%;
     height: 100%;
 }
+
+@media screen and (max-width: 1000px) {
+    .main{
+        grid-template-columns: 1fr;
+    }
+}
