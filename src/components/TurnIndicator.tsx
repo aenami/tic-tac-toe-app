@@ -1,4 +1,3 @@
-import React from 'react'
 import '../styles/turnIndicator.css'
 import { useContextGame } from '../context/scoresContext/useContextGame';
 

@@ -1,4 +1,3 @@
-import React from 'react'
 import TurnIndicator from './TurnIndicator'
 import GameBoard from './GameBoard'
 import '../styles/gameArea.css'

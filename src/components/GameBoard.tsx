@@ -1,4 +1,3 @@
-import React from 'react'
 import '../styles/gameBoard.css'
 import Cell from './Cell'
 import { useContextGame } from '../context/scoresContext/useContextGame'

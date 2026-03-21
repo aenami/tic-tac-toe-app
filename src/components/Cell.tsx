@@ -1,4 +1,3 @@
-import React from 'react'
 import '../styles/cell.css'
 import { MdOutlineCircle } from "react-icons/md";
 import { BsXSquareFill } from "react-icons/bs";

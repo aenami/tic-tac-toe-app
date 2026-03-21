@@ -1,4 +1,3 @@
-import React from 'react'
 import ScoreBoard from './ScoreBoard'
 import '../styles/sideBar/sideInfo.css'
 import { RiResetLeftLine } from "react-icons/ri";
