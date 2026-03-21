@@ -1,4 +1,3 @@
-import React from 'react'
 import ScoreItem from './ScoreItem'
 import '../styles/sideBar/scoreBoard.css'
 
